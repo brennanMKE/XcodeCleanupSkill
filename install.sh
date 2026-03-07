@@ -26,7 +26,22 @@ fi
 # Check if skill already exists
 if [[ -d "${SKILL_PATH}" ]]; then
     echo -e "${GREEN}✓${NC} ${SKILL_NAME} skill already installed at ${SKILL_PATH}"
-    exit 0
+    read -k 1 "?Replace with files from this repo? [Y/n] " REPLACE
+    echo ""
+    case "${REPLACE}" in
+        y|Y|"")
+            echo "Removing old installation..."
+            rm -rf "${SKILL_PATH}"
+            ;;
+        n|N)
+            echo "Installation cancelled."
+            exit 0
+            ;;
+        *)
+            echo -e "${RED}✗${NC} Invalid input. Please enter Y or n."
+            exit 1
+            ;;
+    esac
 fi
 
 # Install from local directory or git repo

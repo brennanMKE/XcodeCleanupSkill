@@ -12,10 +12,11 @@ Automate cleanup of newly created Xcode projects to remove personal metadata and
 ## Process
 
 1. Check if this is an Xcode project by looking for `*.xcodeproj` directory.
-2. Create `.xcodeproj/xcshareddata/IDETemplateMacros.plist` with minimal header template using `references/template-macros.xml`.
-3. Find all Swift source files in the project using patterns from `references/file-patterns.md`.
-4. Replace all default Xcode headers with minimal format using patterns from `references/header-replacement.md`.
-5. Verify changes were applied correctly.
+2. Create `.gitignore` and `.gitattributes` files in the project root using templates from `references/git.md`.
+3. Create `.xcodeproj/xcshareddata/IDETemplateMacros.plist` with minimal header template using `references/template-macros.xml`.
+4. Find all Swift source files in the project using patterns from `references/file-patterns.md`.
+5. Replace all default Xcode headers with minimal format using patterns from `references/header-replacement.md`.
+6. Verify changes were applied correctly.
 
 ## Core Instructions
 
@@ -28,13 +29,16 @@ Automate cleanup of newly created Xcode projects to remove personal metadata and
 ## Output Format
 
 Report what was done:
-1. Whether `IDETemplateMacros.plist` was created or already existed
-2. How many Swift files were found
-3. How many headers were successfully replaced
-4. Any files that couldn't be processed
+1. Whether git configuration files (`.gitignore`, `.gitattributes`) were created or already existed
+2. Whether `IDETemplateMacros.plist` was created or already existed
+3. How many Swift files were found
+4. How many headers were successfully replaced
+5. Any files that couldn't be processed
 
 Example output:
 ```
+✅ Created .gitignore for Xcode projects
+✅ Created .gitattributes for consistent file handling
 ✅ Created IDETemplateMacros.plist for minimal headers
 📝 Found 5 Swift files
 ✏️  Updated 5 file headers to minimal format:
@@ -47,6 +51,7 @@ Example output:
 
 ## References
 
+- `references/git.md` - Git configuration templates (.gitignore and .gitattributes)
 - `references/template-macros.xml` - The IDETemplateMacros.plist configuration file content
 - `references/file-patterns.md` - Patterns to find Swift source files
 - `references/header-replacement.md` - Header replacement patterns and format

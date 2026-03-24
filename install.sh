@@ -48,7 +48,7 @@ fi
 if [[ -d "${SCRIPT_DIR}/${SKILL_NAME}" ]]; then
     # Install from local directory
     echo "Installing from local directory..."
-    cp -r "${SCRIPT_DIR}/${SKILL_NAME}" "${SKILL_PATH}"
+    ln -s "${SCRIPT_DIR}/${SKILL_NAME}" "${SKILL_PATH}"
     echo -e "${GREEN}✓${NC} ${SKILL_NAME} skill installed successfully"
 else
     # Clone from git repo

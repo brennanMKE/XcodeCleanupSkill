@@ -42,11 +42,11 @@ Example output:
 ✅ Created IDETemplateMacros.plist for minimal headers
 📝 Found 5 Swift files
 ✏️  Updated 5 file headers to minimal format:
-  - FlaschenTaschenApp.swift
+  - AcmeApp.swift
   - ContentView.swift
-  - FlaschenTaschenTests.swift
-  - FlaschenTaschenUITests.swift
-  - FlaschenTaschenUITestsLaunchTests.swift
+  - AcmeTests.swift
+  - AcmeUITests.swift
+  - AcmeUITestsLaunchTests.swift
 ```
 
 ## References
